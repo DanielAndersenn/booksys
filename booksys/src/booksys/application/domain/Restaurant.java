@@ -48,6 +48,13 @@ class Restaurant
     Customer c = getCustomer(name, phone) ;
     return bm.createReservation(covers, date, time, t, c, null) ;
   }
+  
+  //7.10 Addition
+  public Booking addWListEntry(int covers, Date date, Time time, int tno, String name, String phone)
+  {
+	  
+	  return null;
+  }
 
   public Booking makeWalkIn(int covers, Date date,
 			   Time time, int tno)

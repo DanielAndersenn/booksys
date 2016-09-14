@@ -1,9 +1,12 @@
 package booksys.presentation;
 import java.awt.* ;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -18,6 +21,7 @@ protected TextField dateField;
 protected List list;
 protected Button add;
 protected Button close;
+protected ReservationDialog rD;
 	
 
 WaitingListDialog(Frame owner, String title)
@@ -65,7 +69,12 @@ WaitingListDialog(Frame owner, String title)
 	add(listPanel, BorderLayout.CENTER);
 	add(buttonPanel, BorderLayout.PAGE_END);
 
-	
+	add.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			rD = new ReservationDialog(owner, "Reservation to add to waiting list");	
+			rD.show();
+		}
+	});
 	
 	}
 	
@@ -74,5 +83,12 @@ WaitingListDialog(Frame owner, String title)
 		
 		return;
 	}
+
+	public ReservationDialog getWaitingListEntry() {
+		return rD;
+		
+	}
+	
+	
 	
 }

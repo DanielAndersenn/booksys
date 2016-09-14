@@ -244,5 +244,16 @@ public void openWaitingList() {
 	WaitingListDialog wList = new WaitingListDialog(parentFrame, "Waiting list");
 	wList.show();
 	
+	ReservationDialog rDR = wList.getWaitingListEntry();
+	if (rDR.isConfirmed()) {
+	      bs.makeWListEntry(rDR.getCovers(), //makeWatingListEntry
+	    		  bs.getCurrentDate(),
+	    		  rDR.getTime(),
+	    		  rDR.getTableNumber(),
+	    		  rDR.getCustomerName(),
+	    		  rDR.getPhoneNumber()) ;
+	    }
+	
+	
 }
 }

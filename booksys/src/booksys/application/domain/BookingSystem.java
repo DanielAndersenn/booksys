@@ -206,4 +206,11 @@ public class BookingSystem
   {
     return Restaurant.getTableNumbers() ;
   }
+
+  public void makeWListEntry(int covers, Date date, Time time, int tableNumber, String cName,
+		String phone) 
+  {
+	  Booking b = restaurant.makeReservation(covers, date, time, tableNumber, cName, phone);
+	
+  }
 }
