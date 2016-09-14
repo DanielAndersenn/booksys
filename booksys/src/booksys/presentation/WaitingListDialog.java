@@ -18,6 +18,8 @@ import booksys.application.domain.Booking;
 import booksys.application.domain.BookingImp;
 import booksys.application.domain.WListEntry;
 
+//7.10 New class to handle graphics related to the waiting list
+
 class WaitingListDialog extends Dialog
 {
 
@@ -32,7 +34,7 @@ protected StaffUI ui;
 protected Vector<WListEntry> WList;
 protected DefaultListModel listModel;
 	
-
+//Ugly solution with passing the UI in the constructor
 WaitingListDialog(Frame owner, String title, StaffUI ui)
 	{	
 	super(owner, title);
@@ -54,16 +56,6 @@ WaitingListDialog(Frame owner, String title, StaffUI ui)
 	JPanel labelPanel = new JPanel();
 	listLabel = new Label("    Name    |  Time  | Covers |  Phone  |    Date  ");
 	labelPanel.add(listLabel);
-	
-	
-	
-	
-	/*
-	//Date panel
-	JPanel datePanel = new JPanel();
-	
-	
-	*/
 	
 	//Button panel
 	JPanel buttonPanel = new JPanel();
@@ -110,6 +102,8 @@ WaitingListDialog(Frame owner, String title, StaffUI ui)
 	
 	}
 	
+
+	//Root of the call that queueries the database for waitinglist entries
 	void populateList() {
 		WList = ui.getWList();
 		Iterator it = WList.iterator();

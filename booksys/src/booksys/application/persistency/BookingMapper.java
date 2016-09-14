@@ -77,7 +77,7 @@ public class BookingMapper
     }
     return v ;
   }
-  
+//7.10 Query for entries in the waitinglist table in the DB
   public Vector getWList()
 	  {
 		    Vector v = new Vector() ;

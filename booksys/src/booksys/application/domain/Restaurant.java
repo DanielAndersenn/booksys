@@ -74,7 +74,8 @@ class Restaurant
     bm.deleteBooking(b) ;
   }
 
+  //7.10 Query for entries in the waitinglist table in the DB
 public Vector<WListEntry> getWList() {
 	return bm.getWList();
-}
+  }
 }

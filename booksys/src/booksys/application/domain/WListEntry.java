@@ -3,6 +3,7 @@ package booksys.application.domain;
 import java.sql.Date ;
 import java.sql.Time ;
 
+//7.10 Class(DTO) to handle WlistEntry objects
 
 public class WListEntry {
 	protected int covers;

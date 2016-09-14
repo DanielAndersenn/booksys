@@ -77,6 +77,7 @@ public class BookingSystem
     notifyObservers() ;
   }
   
+  //7.10 Query for entries in the waitinglist table in the DB
   public Vector<WListEntry> getWList(){
 	  return restaurant.getWList();
   }

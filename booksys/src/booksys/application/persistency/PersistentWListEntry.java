@@ -7,6 +7,8 @@ import booksys.application.domain.Reservation;
 import booksys.application.domain.Table;
 import booksys.application.domain.WListEntry;
 
+//7.10 Persistent class to handle identification of WListEntries. WIP
+
 public class PersistentWListEntry extends WListEntry implements PersistentBooking
 {
 	  private int oid ;
@@ -17,7 +19,7 @@ public class PersistentWListEntry extends WListEntry implements PersistentBookin
 	    oid = id ;
 	  }
 
-	  /* public because getId defined in an interface and hence public */
+	  /* public because getId defined is an interface and hence public */
 	  
 	  public int getId() {
 	    return oid ;

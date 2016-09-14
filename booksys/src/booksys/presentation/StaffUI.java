@@ -256,7 +256,7 @@ public class StaffUI
 		    		  rDR.getPhoneNumber()) ;
 		    }
   }
-  
+  //7.10 Query for entries in the waitinglist table in the DB
   public Vector<WListEntry> getWList(){
 	  return bs.getWList();
   }
