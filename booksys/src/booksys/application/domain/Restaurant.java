@@ -52,8 +52,10 @@ class Restaurant
   //7.10 Addition
   public Booking addWListEntry(int covers, Date date, Time time, int tno, String name, String phone)
   {
+	  Table t = getTable(tno);
+	  Customer c = getCustomer(name, phone);
 	  
-	  return null;
+	  return bm.createWListEntry(covers, date, time, t, c, null);
   }
 
   public Booking makeWalkIn(int covers, Date date,
@@ -71,4 +73,8 @@ class Restaurant
   public void removeBooking(Booking b) {
     bm.deleteBooking(b) ;
   }
+
+public Vector<WListEntry> getWList() {
+	return bm.getWList();
+}
 }

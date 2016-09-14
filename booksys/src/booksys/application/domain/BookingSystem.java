@@ -22,7 +22,7 @@ public class BookingSystem
   // Associations:
 
   Restaurant restaurant = null ;
-  Vector<Booking> currentBookings ;
+  Vector<Booking> currentBookings;
   Booking selectedBooking ;
 
   // Singleton:
@@ -75,6 +75,10 @@ public class BookingSystem
     currentBookings = restaurant.getBookings(currentDate) ;
     selectedBooking = null ;
     notifyObservers() ;
+  }
+  
+  public Vector<WListEntry> getWList(){
+	  return restaurant.getWList();
   }
   
   public void makeReservation(int covers, Date date, Time time, int tno,
@@ -210,7 +214,7 @@ public class BookingSystem
   public void makeWListEntry(int covers, Date date, Time time, int tableNumber, String cName,
 		String phone) 
   {
-	  Booking b = restaurant.makeReservation(covers, date, time, tableNumber, cName, phone);
+	  Booking b = restaurant.addWListEntry(covers, date, time, tableNumber, cName, phone);
 	
   }
 }

@@ -78,6 +78,38 @@ public class BookingMapper
     return v ;
   }
   
+  public Vector getWList()
+	  {
+		    Vector v = new Vector() ;
+		    try
+		    {
+		      Statement stmt = Database.getInstance().getConnection().createStatement() ;
+		      ResultSet rset = stmt.executeQuery("SELECT * FROM waitinglist") ;
+		      while (rset.next()) {
+			int oid = rset.getInt(1) ;
+			int covers = rset.getInt(2) ;
+			Date bdate = rset.getDate(3) ;
+			Time btime = rset.getTime(4) ;
+			int table = rset.getInt(5) ;
+			int cust = rset.getInt(6) ;
+			Time atime = rset.getTime(7) ;
+			PersistentTable t = TableMapper.getInstance().getTableForOid(table) ;
+			PersistentCustomer c =
+			  CustomerMapper.getInstance().getCustomerForOid(cust) ;
+			PersistentWListEntry r
+			  = new PersistentWListEntry(oid, covers, bdate, btime, c) ;
+			v.add(r) ;
+		      }
+		      rset.close() ;
+		     stmt.close() ;
+		    }
+		    catch (SQLException e) {
+		      e.printStackTrace() ;
+		    }
+		    return v ;
+  }
+  
+  
   public PersistentReservation createReservation(int covers,
 						 Date date,
 						 Time time,
@@ -106,7 +138,7 @@ public class BookingMapper
   } 
   
   //7.10 Addition
-  public PersistentReservation addReservationToWL(int covers,
+  public PersistentReservation createWListEntry(int covers,
 			 Date date,
 			 Time time,
 			 Table table,
@@ -203,4 +235,5 @@ public class BookingMapper
       e.printStackTrace() ;
     }
   }
+
 }

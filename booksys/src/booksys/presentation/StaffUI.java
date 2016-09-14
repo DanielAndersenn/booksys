@@ -239,21 +239,27 @@ public class StaffUI
     bs.recordArrival(new Time(now.getTimeInMillis())) ;
   }
 
-public void openWaitingList() {
+  public void openWaitingList() {
 	System.out.println("openWaitingList kaldt fra StaffUI.java");
-	WaitingListDialog wList = new WaitingListDialog(parentFrame, "Waiting list");
+	WaitingListDialog wList = new WaitingListDialog(parentFrame, "Waiting list", this);
 	wList.show();
-	
-	ReservationDialog rDR = wList.getWaitingListEntry();
-	if (rDR.isConfirmed()) {
-	      bs.makeWListEntry(rDR.getCovers(), //makeWatingListEntry
-	    		  bs.getCurrentDate(),
-	    		  rDR.getTime(),
-	    		  rDR.getTableNumber(),
-	    		  rDR.getCustomerName(),
-	    		  rDR.getPhoneNumber()) ;
-	    }
-	
-	
-}
+	}
+
+  public void createWListEntry(ReservationDialog rDR) {
+	  System.out.println("Når vi ind i createWListEntry i StaffUI?");
+	  if (rDR.isConfirmed()) {
+		      bs.makeWListEntry(rDR.getCovers(), //makeWatingListEntry
+		    		  bs.getCurrentDate(),
+		    		  rDR.getTime(),
+		    		  rDR.getTableNumber(),
+		    		  rDR.getCustomerName(),
+		    		  rDR.getPhoneNumber()) ;
+		    }
+  }
+  
+  public Vector<WListEntry> getWList(){
+	  return bs.getWList();
+  }
+  
+
 }
